@@ -1,7 +1,7 @@
 import fs from 'fs/promises';
 import bmp from 'bmp-js';
 
-const width = 64;
+const width = 64 * 4;
 const height = 32;
 const pxlsPerFrame = width * height;
 const frameCount = 34;
@@ -29,16 +29,17 @@ for (const i in frames) {
 	const frame = frames[i];
 	css += `${Math.round(i/frameCount*100)}%{box-shadow:`;
 
-	console.log(frame, frame.length, width * height);
-
-	for (const j in frame) {
-		const value = frame[j];
+	for (let j = 0; j < frame.length; j += 4) {
+		const value =
+			(frame[j + 3] << 16) +
+			(frame[j + 2] << 8) +
+			(frame[j + 1]);
 
 		const x = j % width;
 		const y = Math.floor(j / width);
 		const clr = pxlClr(value);
 
-		css += `${x * pixelSize}px ${y * pixelSize}px #${clr},`
+		css += `${x * pixelSize/4}px ${y * pixelSize}px #${clr},`
 		if (!x) txt += '\n';
 		txt += value ? '■' : ' ';
 	}
