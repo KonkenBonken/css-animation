@@ -15,7 +15,7 @@ const { data } = bmp.decode(buffer);
 const pixels = new Uint8Array(data);
 const frames = [];
 
-const pxlClr = pxlVal => (pxlVal * 16).toString(16).padStart(3, '0');
+const pxlClr = pxlVal => pxlVal ? pxlVal.toString(16).padStart(6, '0') : '000';
 
 for (var i = 0; i < frameCount;)
 	frames.push(
