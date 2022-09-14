@@ -23,7 +23,6 @@ for (var i = 0; i < frameCount;)
 	);
 
 let css = '@keyframes animation{';
-let txt = '';
 
 for (const i in frames) {
 	const frame = frames[i];
@@ -40,8 +39,6 @@ for (const i in frames) {
 		const clr = pxlClr(value);
 
 		css += `${x * pixelSize/4}px ${y * pixelSize}px #${clr},`
-		if (!x) txt += '\n';
-		txt += value ? '■' : ' ';
 	}
 
 	css = css.slice(0, -1);
@@ -51,5 +48,4 @@ for (const i in frames) {
 css += '}';
 
 fs.writeFile('shadow.css', css)
-
 console.timeEnd('time');
