@@ -1,0 +1,9 @@
+{
+  "name": "css-anim",
+  "version": "1.0.0",
+  "author": "Konrad Pettersson <konrad05pettersson@gmail.com>",
+  "type": "module",
+  "dependencies": {
+    "bmp-js": "^0.1.0"
+  }
+}

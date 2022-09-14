@@ -1,0 +1,19 @@
+@import 'shadow.css';
+
+body {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+#canvas {
+  width: 1280px;
+  height: 640px;
+}
+
+#pixel {
+  width: 20px;
+  height: 20px;
+  animation: animation 10s linear infinite;
+}
