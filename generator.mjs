@@ -26,6 +26,10 @@ let css = '@keyframes animation{';
 
 for (const i in frames) {
 	const frame = frames[i];
+
+	if (i == frames.length - 1)
+		css += `100%,`;
+
 	css += `${Math.round(i/frameCount*100)}%{box-shadow:`;
 
 	for (let j = 0; j < frame.length; j += 4) {
